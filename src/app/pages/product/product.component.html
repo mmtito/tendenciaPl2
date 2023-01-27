@@ -5,11 +5,11 @@
                 <img [src]="selectedProduct.images" class="rounded-full h-75 w-75" alt="">
             </figure>
             <label class="label">
-                <span class="label-text">Producto:</span>
+                <span class="label-text text-center">Id del Producto:<span class="text-green-500 text-base" > {{selectedProduct.id}} </span> </span>
                 <span class="label-text-alt text-red-600">Data</span>
             </label>
             <input type="text" placeholder="Nombre del producto" [value]="selectedProduct.title"
-                class="input input-bordered w-full max-w-xs input-sm" />
+                class="input input-bordered w-full max-w-xs input-sm border-none" />
             <label class="label">
             </label>
             <label class="label">
@@ -17,12 +17,12 @@
                 <span class="label-text-alt text-red-600">Data</span>
             </label>
             <input type="text" placeholder="Precio del producto" [value]="selectedProduct.price"
-                class="input input-bordered w-full max-w-xs input-sm" />
+                class="input input-bordered w-full max-w-xs input-sm border-none" />
             <label class="label">
             </label>
             <label class="label">
                 <span class="label-text">Descripcion:</span>
-                <span class="label-text-alt text-red-600">Data</span>
+                <span class="label-text-alt text-red-600 border-none">Data</span>
             </label>
             <textarea name="" placeholder="Descripcion del producto" [value]="selectedProduct.description" id=""
                 cols="30" rows="5"></textarea>
@@ -33,7 +33,7 @@
     </div>
 </div>
 <hr>
-<div class="pl-20">
+<div class="ml-28">
     <div class="overflow-x-auto">
         <table class="table table-compact w-full">
             <thead>
@@ -59,8 +59,9 @@
                     <td>
                         <div class="flex items-center space-x-3">
                             <div class="avatar">
-                                <div class="mask mask-squircle"></div>
-                                <img src="{{product.images}}" height="10px" width="10px">
+                                <div class="mask mask-squircle h-20 w-20 rounded-sm" >
+                                    <img [src]="product.images">
+                                </div>
                             </div>
                         </div>
                     </td>
@@ -68,7 +69,7 @@
                     <td>{{product.price}}</td>
                     <td>{{product.description}}</td>
                     <td>
-                        <label for="my-modal-3" class="btn btn-sm btn-ghost">
+                        <label for="my-modal-3"  class="btn btn-sm btn-ghost">
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="h-5 w-5 fill-red-500">
                                 <g id="_01_align_center" data-name="01 align center">
                                     <path
@@ -84,7 +85,7 @@
                             <div class="modal-box relative rounded-sm">
                                 <label for="my-modal-3"
                                     class="btn btn-sm btn-circle absolute right-2 top-2 bg-red-800 border-red-700">✕</label>
-                                <h3 class="text-lg font-bold text-red-700 text-center">Deseas Eliminar</h3>
+                                <h3 class="text-lg font-bold text-red-700 text-center">Deseas Eliminar {{product.id}} </h3>
                                 <p class="py-4">¿Estas Seguro? Esto no se podra deshacer</p>
                                 <label class="btn btn-success btn-xs rounded-sm text-center"
                                     (click)="deleteProduct(product.id)">

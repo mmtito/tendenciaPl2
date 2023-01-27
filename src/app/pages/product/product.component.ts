@@ -9,67 +9,68 @@ import { ProductHttpService } from 'src/app/services/product-http.service';
 })
 export class ProductComponent implements OnInit {
   products: ProductModel[] = [];
-  selectedProduct:UpdateProductDto = {};
+  selectedProduct: UpdateProductDto = {};
 
-  constructor(private productHttpService:ProductHttpService) {
-   }
+  constructor(private productHttpService: ProductHttpService) {
+  }
 
   ngOnInit(): void {
     this.getProducts();
     //this.getProduct();
-    this.createProduct();
+    //this.createProduct();
     //this.updateProduct();
     //this.deleteProduct();
   }
-  
-    getProducts() {
-      this.productHttpService.getAll().subscribe(
-        response => {
-          this.products = response;
-          console.log(response);
-        });
-    }
-    getProduct() {
-      this.productHttpService.getOne(2).subscribe(
-        response => {
+
+  getProducts() {
+    this.productHttpService.getAll().subscribe(
+      response => {
+        this.products = response;
         console.log(response);
       });
-    }
-  
-    createProduct() {
-      const data = {
-        title: 'Tio MOkito',
-        price: 650,
-        description: 'Tio Mokito',
-        images: [
-          'https://placeimg.com/640/480/any',
-        ],
-        categoryId: 2,
-      };
-      this.productHttpService.store(data).subscribe(
-        response => {
-        console.log(response);
-      });
-    }
-    editProduct(product: ProductModel){
-      this.selectedProduct = product;
-    }
-    updateProduct() {
-      const data = {
-        title: 'Maximiliatito',
-        price: 15,
-        description: 'cuadernitos de max',
-      };
-      this.productHttpService.update(226, data).subscribe(
-        response => {
-        console.log(response);
-      });
-    }
-    deleteProduct(id: ProductModel['id']) {
-      this.productHttpService.destroy(id).subscribe(
-        response => {
-          this.products = this.products.filter(product => product.id != id );
-        console.log(response);
-      });
-    }
   }
+  getProduct() {
+    this.productHttpService.getOne(2).subscribe(
+      response => {
+        console.log(response);
+      });
+  }
+
+  createProduct() {
+    const data = {
+      title: 'Pruebas',
+      price: 650,
+      description: 'pruebas Mx',
+      images: [
+        'https://placeimg.com/640/480/any',
+      ],
+      categoryId: 2,
+    };
+    this.productHttpService.store(data).subscribe(
+      response => {
+        console.log(response);
+      });
+  }
+  editProduct(product: ProductModel) {
+    this.selectedProduct = product;
+  }
+  updateProduct() {
+    const data = {
+      title: 'pruebaActualizarMx',
+      price: 15,
+      description: 'cuadernitos de mx',
+    };
+    this.productHttpService.update(533, data).subscribe(
+      response => {
+        console.log(response);
+      });
+  }
+  deleteProduct(id: ProductModel['id']) {
+    this.productHttpService.destroy(id).subscribe(
+      response => {
+        this.products = this.products.filter(product => product.id != id);
+        console.log(response);
+      }
+    );
+  }
+}
