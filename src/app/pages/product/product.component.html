@@ -1,6 +1,9 @@
 <div class="card w-96 bg-base-200 shadow-2xl">
     <div class="card-body">
         <div class="w-full max-w-xs">
+            <figure>
+                <img [src]="selectedProduct.images" class="rounded-full h-75 w-75" alt="">
+            </figure>
             <label class="label">
                 <span class="label-text">Producto:</span>
                 <span class="label-text-alt text-red-600">Data</span>
@@ -35,6 +38,7 @@
         <table class="table table-compact w-full">
             <thead>
                 <tr>
+                    <th>Id</th>
                     <th>Imagen</th>
                     <th>Producto</th>
                     <th>Precio</th>
@@ -51,11 +55,12 @@
             </thead>
             <tbody>
                 <tr class="hover" *ngFor="let product of products">
+                    <td>{{product.id}}</td>
                     <td>
                         <div class="flex items-center space-x-3">
                             <div class="avatar">
-                                <div class="mask mask-squircle w-12 h-12"></div>
-                                <img src="{{product.images}}" alt="">
+                                <div class="mask mask-squircle"></div>
+                                <img src="{{product.images}}" height="10px" width="10px">
                             </div>
                         </div>
                     </td>
@@ -77,10 +82,12 @@
                         <input type="checkbox" id="my-modal-3" class="modal-toggle" />
                         <div class="modal">
                             <div class="modal-box relative rounded-sm">
-                                <label for="my-modal-3" class="btn btn-sm btn-circle absolute right-2 top-2 bg-red-800 border-red-700">✕</label>
+                                <label for="my-modal-3"
+                                    class="btn btn-sm btn-circle absolute right-2 top-2 bg-red-800 border-red-700">✕</label>
                                 <h3 class="text-lg font-bold text-red-700 text-center">Deseas Eliminar</h3>
                                 <p class="py-4">¿Estas Seguro? Esto no se podra deshacer</p>
-                                <label class="btn btn-success btn-xs rounded-sm text-center" (click)="deleteProduct(product.id)">
+                                <label class="btn btn-success btn-xs rounded-sm text-center"
+                                    (click)="deleteProduct(product.id)">
                                     <span class="text-white">Aceptar</span>
                                 </label>
                             </div>

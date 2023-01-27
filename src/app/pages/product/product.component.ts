@@ -17,7 +17,7 @@ export class ProductComponent implements OnInit {
   ngOnInit(): void {
     this.getProducts();
     //this.getProduct();
-    //this.createProduct();
+    this.createProduct();
     //this.updateProduct();
     //this.deleteProduct();
   }
@@ -38,13 +38,13 @@ export class ProductComponent implements OnInit {
   
     createProduct() {
       const data = {
-        title: 'Computadora Itel core i7',
+        title: 'Tio MOkito',
         price: 650,
-        description: 'Electrodomesticos / Erick Guevara',
+        description: 'Tio Mokito',
         images: [
-          'https://m.media-amazon.com/images/I/51A+xXT0yiL._AC_SY580_.jpg',
+          'https://placeimg.com/640/480/any',
         ],
-        categoryId: 1,
+        categoryId: 2,
       };
       this.productHttpService.store(data).subscribe(
         response => {
@@ -56,11 +56,11 @@ export class ProductComponent implements OnInit {
     }
     updateProduct() {
       const data = {
-        title: 'Computadora Itel core i10',
-        price: 1150,
-        description: 'Electrodomesticos / Erick Guevara',
+        title: 'Maximiliatito',
+        price: 15,
+        description: 'cuadernitos de max',
       };
-      this.productHttpService.update(23, data).subscribe(
+      this.productHttpService.update(226, data).subscribe(
         response => {
         console.log(response);
       });

@@ -9,6 +9,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { SharedModule } from "./shared/shared.module";
 import { PagesModule } from './pages/pages.module';
 import { HttpClientModule } from '@angular/common/http';
+import { MatSliderModule } from '@angular/material';
 
 @NgModule({
     declarations: [
@@ -26,6 +27,7 @@ import { HttpClientModule } from '@angular/common/http';
         PagesModule,
         SharedModule,
         HttpClientModule,
+        MatSliderModule
     ]
 })
 export class AppModule { }
